@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        base(src="/")
+        title asasd
+        meta(charset="UTF-8")
+        meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport')
+        //- bootstrap
+        link(rel="stylesheet" type="text/css"  href="./lib/bootstrap/css/bootstrap.min.css")
+        //- font-awesome
+        link(rel="stylesheet" type="text/css" href="./lib/font-awesome/css/font-awesome.min.css")
+        
+body
+    div.form-input(style="max-width:300px;margin-left:auto;margin-right:auto;margin-bottom:30px;margin-top:30px;clear:both")
+        div.from-group
+            input.form-control.search-value(type="text")
+    div#tree.tree
+        ul
+            li(data-id="1") 
+                div.wrap
+                    button.minus(type="button")
+                        i.fa.fa-minus
+                    input(type="text")
+                    button.plus(type="button")
+                        i.fa.fa-plus
+    div(style="clear:both")
+    div.container(style="margin-top:30px")
+        table.table.table-bordered
+            thead
+                tr
+                    th Số lần lặp
+                    th X
+                    th Open
+                    th Close
+            tbody
+    div.container
+        div.result
+                
+
+    
+    script(src="./lib/jquery/jquery.min.js")
+    script(src="./lib/bootstrap/js/bootstrap.min.js")
+    //- config
+    script
+        include script-inline.js

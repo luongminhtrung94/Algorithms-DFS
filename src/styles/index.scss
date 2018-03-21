@@ -1,0 +1,99 @@
+*{
+    margin:0;
+    padding:0;
+}
+.wrap{
+    button{
+        border-radius:50%;
+        width:30px;
+        height:30px;
+        line-height: 30px;
+        margin-left:5px;
+        margin-right:5px;
+        border:1px solid #000;
+        text-align: center;
+        outline:none;
+    }
+    input{
+        max-width:50px;
+        text-align: center;
+    }
+}
+.tree{
+    ul{
+        padding-top:20px;
+        position:relative;
+        /*Time to add downward connectors from parents*/
+        ul::before{
+            content: '';
+            position: absolute; top: 0; left: 50%;
+            border-left: 1px solid #ccc;
+            width: 0; height: 20px;
+        }
+    }
+    li{
+        float:left;
+        list-style-type: none;
+        padding: 20px 5px 0 5px;
+        position:relative;
+        text-align:center;
+        &:before,&:after{
+            content: '';
+            position: absolute; top: 0; right: 50%;
+            border-top: 1px solid #ccc;
+            width: 50%; height: 20px;
+        }
+        &::after{
+            right: auto; left: 50%;
+            border-left: 1px solid #ccc;
+        }
+        &:only-child::after, &:only-child::before {
+            display: none;
+        }
+        /*Remove space from the top of single children*/
+        &:only-child{ 
+            padding-top: 0;
+        }
+        /*Remove left connector from first child and 
+        right connector from last child*/
+        &:first-child::before,&:last-child::after{
+            border: 0 none;
+        }
+        /*Adding back the vertical connector to the last nodes*/
+        &:last-child::before{
+            border-right: 1px solid #ccc;
+            border-radius: 0 5px 0 0;
+            -webkit-border-radius: 0 5px 0 0;
+            -moz-border-radius: 0 5px 0 0;
+        }
+        &:first-child::after{
+            border-radius: 5px 0 0 0;
+            -webkit-border-radius: 5px 0 0 0;
+            -moz-border-radius: 5px 0 0 0;
+        }
+        
+        // /*Time for some hover effects*/
+        // /*We will apply the hover effect the the lineage of the element also*/
+        // .tree li a:hover, .tree li a:hover+ul li a {
+        //     background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+        // }
+
+        a{
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #666;
+            font-family: arial, verdana, tahoma;
+            font-size: 11px;
+            display: inline-block;
+            
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+    }
+}
